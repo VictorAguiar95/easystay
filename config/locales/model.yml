@@ -1,0 +1,33 @@
+pt-BR:
+  activerecord:
+    models:
+      guesthouse: "Pousada"
+      room: "Quarto"
+    attributes:
+      guesthouse: 
+        trade_name: "Nome Comercial"
+        corporate_name: "Razão Social"
+        address: "Endereço"
+        neighborhood: "Bairro"
+        city: "Cidade"
+        state: "Estado"
+        cep: "CEP"
+        phone_number: "Telefone"
+        email: "E-mail"
+        cnpj: "CNPJ"
+        quantity_rooms: "Quantidade de quartos"
+        pets_allowed: "Aceita animais de estimação?"
+      room:
+        name: "Nome"
+        description: "Descrição"
+        size: "Tamanho"
+        qty_people: "Quantas pessoas?"
+        bathroom: "Banheiro"
+        balcony: "Varanda"
+        wi_fi: "Wi-Fi"
+        air_conditioning: "Ar Condicionado"
+        television: "Televisão"
+        wardrobe: "Guarda-roupas"
+        safe: "Cofre"
+        accessible_disabled: "Acessibilidade para deficientes"
+        available: "Disponível?"

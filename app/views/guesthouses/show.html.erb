@@ -1,0 +1,11 @@
+<div>
+    <%= @guesthouse.trade_name %>
+    <strong>Endereço: </strong><%=@guesthouse.address%> - <%=@guesthouse.neighborhood%>, <%=@guesthouse.city%> - <%=@guesthouse.state%>, <%=@guesthouse.cep%>
+    <strong>Numero de quartos: </strong><%=@guesthouse.quantity_rooms%>
+    <strong>Telefone: </strong><%=@guesthouse.phone_number%>
+    <strong>E-mail: </strong><%=@guesthouse.email%>
+</div>
+
+<%= link_to('Editar', edit_guesthouse_path(@guesthouse.id))%>
+<%= link_to('Voltar', root_path)%>
+

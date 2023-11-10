@@ -1,0 +1,69 @@
+<h1>Nova Pousada</h1>
+
+<% if(@guesthouse.errors.any?) %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @guesthouse.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with(model: @guesthouse) do |f| %>
+    <div>
+        <%= f.label :trade_name %>:
+        <%= f.text_field :trade_name %>
+    </div>
+    <div>
+        <%= f.label :corporate_name %>:
+        <%= f.text_field :corporate_name %>
+    </div>
+    <div>
+        <%= f.label :address %>:
+        <%= f.text_field :address %>
+    </div>
+    <div>
+        <%= f.label :neighborhood %>:
+        <%= f.text_field :neighborhood %>
+    </div>
+    <div>
+        <%= f.label :city %>:
+        <%= f.text_field :city %>
+    </div>
+    <div>
+        <%= f.label :state %>:
+        <%= f.text_field :state %>
+    </div>
+    <div>
+        <%= f.label :cep %>:
+        <%= f.text_field :cep %>
+    </div> 
+    <div>
+        <%= f.label :phone_number %>:
+        <%= f.text_field :phone_number %>
+    </div>
+    <div>
+        <%= f.label :email %>:
+        <%= f.text_field :email %>
+    </div>
+    <div>
+        <%= f.label :cnpj %>:
+        <%= f.text_field :cnpj %>
+    </div>
+    <div>
+        <%= f.label :quantity_rooms %>:
+        <%= f.number_field :quantity_rooms %>
+    </div>
+    <div>
+        <%= f.label :pets_allowed %><br>
+        
+       <%= f.radio_button :pets_allowed, true %>
+        <%= f.label :pets_allowed_true, 'Sim' %><br>
+        
+        <%= f.radio_button :pets_allowed, false %>
+        <%= f.label :pets_allowed_false, 'Não' %>
+    </div>
+    <div>
+        <%= f.submit 'Cadastrar Quartos' %>
+    </div>
+<% end %>

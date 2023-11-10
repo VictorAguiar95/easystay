@@ -1,0 +1,11 @@
+<section id="guesthouses">
+    <h2>Pousadas</h2>
+    <% @guesthouses.each do |g| %>
+        <%= link_to(g.trade_name, guesthouse_path(g.id)) %>
+        <%= g.city %>
+    <% end %>
+
+    <% if @guesthouses.empty? %>
+        <p>Nenhuma pousada cadastrada.</p>
+    <% end %>
+</section>

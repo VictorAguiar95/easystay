@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EasystayApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+    <header>
+      <h1>EasyStay</h1>
+      <nav>
+        <%= link_to('Inicio', root_path)%> |
+        <%= link_to('Anuncie Conosco', new_guesthouse_path)%> |
+        <%= link_to('Agende sua viagem', new_guesthouse_path)%> |
+        <%= link_to('Cadastrar-se', new_guesthouse_path)%> |
+        <%= link_to('Suporte', new_guesthouse_path)%> |
+      </nav>
+    </header>
+    <main>
+      <div>
+        <%= alert %>
+        <%= notice %>
+      </div>
+      <%= yield %>
+    </main>
+  </body>
+</html>
