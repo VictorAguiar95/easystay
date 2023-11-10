@@ -16,8 +16,14 @@
         <%= link_to('Inicio', root_path)%> |
         <%= link_to('Anuncie Conosco', new_guesthouse_path)%> |
         <%= link_to('Agende sua viagem', new_guesthouse_path)%> |
-        <%= link_to('Cadastrar-se', new_guesthouse_path)%> |
         <%= link_to('Suporte', new_guesthouse_path)%> |
+        <%= link_to('Cadastrar-se', new_user_registration_path)%> |
+        <% if user_signed_in?%>
+          <%= current_user.email %>
+          <%= link_to('Sair', root_path)%> 
+        <% else %>
+          <%= link_to('Entrar', new_user_session_path)%> |
+        <% end %>
       </nav>
     </header>
     <main>
