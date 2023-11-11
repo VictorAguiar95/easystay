@@ -1,10 +1,25 @@
 require 'rails_helper'
 
-describe 'Proprietário cadastra uma pousada' do
-    it 'a partir da tela inicial' do
-        
+describe 'Proprietário tenta cadastra uma pousada' do
+
+    it 'sem ter efetuado o login' do
+    
         visit root_path
-        click_on 'Anuncie Conosco'
+        within('nav') do
+            click_on 'Anuncie Conosco'
+        end
+
+        expect(current_path).to eq new_user_session_path
+    end
+
+    it 'a partir da tela inicial' do
+        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
+        
+        login_as(user)
+        visit root_path
+        within('nav') do
+            click_on 'Anuncie Conosco'
+        end
 
         expect(page).to have_field('Nome Comercial')
         expect(page).to have_field('Razão Social')
@@ -21,7 +36,9 @@ describe 'Proprietário cadastra uma pousada' do
     end
 
     it 'com sucesso' do
-
+        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
+        
+        login_as(user)
         visit root_path
         click_on 'Anuncie Conosco'
         fill_in 'Nome Comercial', with: 'Pousada Icaraí'
@@ -44,7 +61,9 @@ describe 'Proprietário cadastra uma pousada' do
     end
 
     it 'com dados incompletos' do
+        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
         
+        login_as(user)
         visit root_path
         click_on 'Anuncie Conosco'
         fill_in 'Nome Comercial', with: ''

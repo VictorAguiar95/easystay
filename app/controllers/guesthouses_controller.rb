@@ -1,4 +1,5 @@
 class GuesthousesController < ApplicationController
+    before_action :authenticate_user!, only: [:new]    
     def show
         set_guesthouse 
     end

@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'Proprietário cadastra uma pousada' do
     it 'a partir da tela inicial' do
+        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
         
+        login_as(user)        
         visit root_path
         click_on 'Anuncie Conosco'
         fill_in 'Nome Comercial', with: 'Pousada Icaraí'
