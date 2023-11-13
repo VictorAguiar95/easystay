@@ -52,7 +52,12 @@ describe 'Proprietário tenta cadastra uma pousada' do
         fill_in 'E-mail', with: 'contato@icarai.com.br'
         fill_in 'CNPJ', with: '58.985.405/0001-06'
         fill_in 'Quantidade de quartos', with: 4
-        #choose 'pets_allowed_true 'Sim''
+        check 'Permite Pets?'
+        fill_in 'Descrição', with: 'Descrição da Pousada Icaraí'
+        select 'Dinheiro', from: 'Meios de Pagamento'
+        fill_in 'Políticas de Uso', with: 'Políticas e regras da pousada'
+        fill_in 'Check-in', with: '2023-11-15'
+        fill_in 'Check-out', with: '2023-11-20'
         click_on 'Cadastrar Quartos'
 
         expect(current_path).to eq new_room_path

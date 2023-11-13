@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Proprietario edita um pousada' do
+describe 'Proprietario edita uma pousada' do
     it 'a partir da pagina de detalhes' do
         guesthouse = Guesthouse.create!(trade_name: 'Pousada Icaraí', corporate_name: 'Pousada Icaraí LTDA', 
                           address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 

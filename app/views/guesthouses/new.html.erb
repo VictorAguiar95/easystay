@@ -54,16 +54,31 @@
         <%= f.label :quantity_rooms %>:
         <%= f.number_field :quantity_rooms %>
     </div>
-    <div>
-        <%= f.label :pets_allowed %><br>
-        
-       <%= f.radio_button :pets_allowed, true %>
-        <%= f.label :pets_allowed_true, 'Sim' %><br>
-        
-        <%= f.radio_button :pets_allowed, false %>
-        <%= f.label :pets_allowed_false, 'Não' %>
-    </div>
+    <div>        
+        <%= f.check_box :pets_allowed %>
+        <%= f.label :pets_allowed, 'Permite Pets?' %>
+    </div>    
     <div>
         <%= f.submit 'Cadastrar Quartos' %>
+    </div>
+    <div>
+        <%= f.label :description, 'Descrição' %>:
+        <%= f.text_area :description %>
+    </div>
+    <div>
+        <%= f.label :payment_methods, 'Meios de Pagamento' %>:
+        <%= f.select :payment_methods, ['Dinheiro', 'Cartão', 'Pix'] %>
+    </div>
+    <div>
+        <%= f.label :policies, 'Políticas de Uso' %>:
+        <%= f.text_area :policies %>
+    </div>
+    <div>
+        <%= f.label :check_in, 'Check-in' %>:
+        <%= f.date_field :check_in %>
+    </div>
+    <div>
+        <%= f.label :check_out, 'Check-out' %>:
+        <%= f.date_field :check_out %>
     </div>
 <% end %>
