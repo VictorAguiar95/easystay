@@ -57,10 +57,7 @@
     <div>        
         <%= f.check_box :pets_allowed %>
         <%= f.label :pets_allowed, 'Permite Pets?' %>
-    </div>    
-    <div>
-        <%= f.submit 'Cadastrar Quartos' %>
-    </div>
+    </div>  
     <div>
         <%= f.label :description, 'Descrição' %>:
         <%= f.text_area :description %>
@@ -80,5 +77,8 @@
     <div>
         <%= f.label :check_out, 'Check-out' %>:
         <%= f.date_field :check_out %>
+    </div>
+    <div>
+        <%= f.submit 'Cadastrar Quartos' %>
     </div>
 <% end %>

@@ -2,12 +2,14 @@ require 'rails_helper'
 
 describe 'Proprietario edita uma pousada' do
     it 'a partir da pagina de detalhes' do
+        user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
         guesthouse = Guesthouse.create!(trade_name: 'Pousada Icaraí', corporate_name: 'Pousada Icaraí LTDA', 
-                          address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
-                          state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
-                          cnpj: '58.985.405/0001-06', quantity_rooms: 4)
+                    address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
+                    state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
+                    cnpj: '58.985.405/0001-06', quantity_rooms: 4, user: user)
 
         visit root_path
+        login_as(user, scope: :user)
         click_on 'Pousada Icaraí'
         click_on 'Editar'
 
@@ -26,12 +28,14 @@ describe 'Proprietario edita uma pousada' do
     end
 
     it 'com sucesso' do
+        user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
         guesthouse = Guesthouse.create!(trade_name: 'Pousada Icaraí', corporate_name: 'Pousada Icaraí LTDA', 
-                          address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
-                          state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
-                          cnpj: '58.985.405/0001-06', quantity_rooms: 4)
+                    address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
+                    state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
+                    cnpj: '58.985.405/0001-06', quantity_rooms: 4, user: user)
 
         visit root_path
+        login_as(user, scope: :user)
         click_on 'Pousada Icaraí'
         click_on 'Editar'
         fill_in 'Nome Comercial', with: 'Pousada Aviação'
@@ -59,12 +63,14 @@ describe 'Proprietario edita uma pousada' do
     end
 
     it 'e mantém os campos obrigatórios' do
+        user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
         guesthouse = Guesthouse.create!(trade_name: 'Pousada Icaraí', corporate_name: 'Pousada Icaraí LTDA', 
-                          address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
-                          state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
-                          cnpj: '58.985.405/0001-06', quantity_rooms: 4)
+                    address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
+                    state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
+                    cnpj: '58.985.405/0001-06', quantity_rooms: 4, user: user)
 
         visit root_path
+        login_as(user, scope: :user)
         click_on 'Pousada Icaraí'
         click_on 'Editar'
         fill_in 'Nome Comercial', with: 'Pousada Aviação'

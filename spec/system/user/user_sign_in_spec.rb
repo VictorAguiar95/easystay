@@ -19,7 +19,6 @@ describe 'Usuário se autentica' do
             expect(page).to have_button 'Sair'
             expect(page).to have_content 'vitor@gmail.com'
         end
-    
     end
 
     it 'e faz logout' do

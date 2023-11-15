@@ -13,10 +13,14 @@ describe 'Proprietário tenta cadastra uma pousada' do
     end
 
     it 'a partir da tela inicial' do
-        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
-        
-        login_as(user)
+        user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
+        guesthouse = Guesthouse.create!(trade_name: 'Pousada Icaraí', corporate_name: 'Pousada Icaraí LTDA', 
+                    address: 'Av. Beira Mar, 11380', neighborhood: 'Balneário Icaraí', city: 'Ilha Comprida', 
+                    state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
+                    cnpj: '58.985.405/0001-06', quantity_rooms: 4, user: user)
+
         visit root_path
+        login_as(user, scope: :user)
         within('nav') do
             click_on 'Anuncie Conosco'
         end
@@ -36,10 +40,10 @@ describe 'Proprietário tenta cadastra uma pousada' do
     end
 
     it 'com sucesso' do
-        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
+        user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
         
-        login_as(user)
         visit root_path
+        login_as(user, scope: :user)
         click_on 'Anuncie Conosco'
         fill_in 'Nome Comercial', with: 'Pousada Icaraí'
         fill_in 'Razão Social', with: 'Pousada Icaraí LTDA'
@@ -56,13 +60,12 @@ describe 'Proprietário tenta cadastra uma pousada' do
         fill_in 'Descrição', with: 'Descrição da Pousada Icaraí'
         select 'Dinheiro', from: 'Meios de Pagamento'
         fill_in 'Políticas de Uso', with: 'Políticas e regras da pousada'
-        fill_in 'Check-in', with: '2023-11-15'
-        fill_in 'Check-out', with: '2023-11-20'
+        fill_in 'Check-in', with: '2023-12-15'
+        fill_in 'Check-out', with: '2023-12-20'
         click_on 'Cadastrar Quartos'
 
         expect(current_path).to eq new_room_path
         expect(page).to have_content '1° Quarto:'
-        #nessa parte preciso alterar para encontrar um form
     end
 
     it 'com dados incompletos' do

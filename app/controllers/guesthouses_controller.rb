@@ -1,26 +1,31 @@
 class GuesthousesController < ApplicationController
-    before_action :authenticate_user!, only: [:new]    
+    before_action :authenticate_user!, only: [:new]
+    before_action :check_proprietario, only: [:new, :create, :edit, :update]    
     def show
         set_guesthouse 
     end
 
     def new
-        @guesthouse = Guesthouse.new
+        if current_user.guesthouses.any?
+            redirect_to root_path, alert: 'Você já possui uma pousada cadastrada'
+          else
+            @guesthouse = Guesthouse.new
+        end
     end
 
     def create
-        @guesthouse = Guesthouse.new(guesthouse_params)
+        @guesthouse = current_user.guesthouses.new(guesthouse_params)
+      
         if @guesthouse.save
-            redirect_to new_room_path, notice: 'Pousada cadastrada com sucesso.'
+            redirect_to new_room_path, notice: 'Pousada cadastrada com sucesso!'
         else
-            flash.now[:notice] = 'Dados incompleto, pousada não cadastrada'
-            render 'new'
-        end        
-        
+            render :new
+        end
     end
 
     def edit
         set_guesthouse
+        redirect_to root_path, alert: 'Acesso negado!' unless current_user == @guesthouse.user
     end
 
     def update

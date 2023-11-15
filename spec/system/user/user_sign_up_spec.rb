@@ -9,6 +9,7 @@ describe 'Usuário se cadastra' do
         fill_in 'E-mail', with: 'vitor@gmail.com'
         fill_in 'Senha', with: '159753vitor'
         fill_in 'Confirme sua senha', with: '159753vitor'
+        select 'Proprietario', from: 'Role'
         click_on 'Sign up'
 
         expect(page).to have_content 'Boas vindas! Você realizou seu registro com sucesso.'

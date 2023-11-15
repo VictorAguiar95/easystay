@@ -1,5 +1,6 @@
 class Guesthouse < ApplicationRecord
     
+    belongs_to :user
     has_many :rooms
     
     validates :trade_name, :corporate_name, :address, :neighborhood, :city, :state,
