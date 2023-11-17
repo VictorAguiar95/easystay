@@ -33,7 +33,7 @@ describe 'Proprietário tenta cadastra uma pousada' do
         expect(page).to have_field('E-mail')
         expect(page).to have_field('CNPJ')
         expect(page).to have_field('Quantidade de quartos')
-        #expect(page).to have_field('Aceita animais de estimação?')
+        expect(page).to have_field('Aceita animais de estimação?')
     end
 
     it 'com sucesso' do
@@ -53,7 +53,7 @@ describe 'Proprietário tenta cadastra uma pousada' do
         fill_in 'E-mail', with: 'contato@icarai.com.br'
         fill_in 'CNPJ', with: '58.985.405/0001-06'
         fill_in 'Quantidade de quartos', with: 4
-        check 'Permite Pets?'
+        select 'Sim', from: 'Aceita animais de estimação?'
         fill_in 'Descrição', with: 'Descrição da Pousada Icaraí'
         select 'Dinheiro', from: 'Meios de Pagamento'
         fill_in 'Políticas de Uso', with: 'Políticas e regras da pousada'
@@ -62,7 +62,7 @@ describe 'Proprietário tenta cadastra uma pousada' do
         click_on 'Cadastrar Quartos'
 
         expect(current_path).to eq new_room_path
-        expect(page).to have_content '1° Quarto:'
+        expect(page).to have_content 'Quarto:'
     end
 
     it 'com dados incompletos' do

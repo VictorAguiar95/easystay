@@ -14,12 +14,12 @@ class GuesthousesController < ApplicationController
     end
 
     def create
-        @guesthouse = current_user.guesthouses.new(guesthouse_params)
-      
-        if @guesthouse.save
-            redirect_to new_room_path, notice: 'Pousada cadastrada!'
+        @room = Room.new(room_params)
+        if @room.save
+            redirect_to root_path, notice: 'Novo quarto cadastrado a pousada!'
         else
-            flash.now[:notice] = 'Dados incompleto, pousada não cadastrada'
+            Rails.logger.info(@room.errors.full_messages)
+            flash.now[:notice] = 'Dados incompletos, quarto não cadastrado'
             render 'new'
         end
     end
@@ -51,5 +51,12 @@ class GuesthousesController < ApplicationController
                                                                :city, :state, :cep, :phone_number, :email, :cnpj, 
                                                                :quantity_rooms)
                                                                #ainda não fiz o cadastro de pets
+    end
+
+    def room_params
+        puts params
+        params.require(:room).permit(:name, :description, :size, :qty_people, :bathroom, :balcony,
+                                                    :wi_fi, :air_conditioning, :television, :wardrobe, :safe,
+                                                    :accessible_disabled, :available)
     end
 end

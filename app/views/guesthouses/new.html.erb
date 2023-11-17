@@ -54,9 +54,9 @@
         <%= f.label :quantity_rooms %>:
         <%= f.number_field :quantity_rooms %>
     </div>
-    <div>        
-        <%= f.check_box :pets_allowed %>
-        <%= f.label :pets_allowed, 'Permite Pets?' %>
+    <div>
+        <%= f.label :pets_allowed %><br>
+        <%= f.select :pets_allowed, [['Sim', true], ['Não', false]] %>
     </div>  
     <div>
         <%= f.label :description, 'Descrição' %>:

@@ -1,6 +1,4 @@
-<h1>1° Quarto:</h1>
-
-
+<h1>Quarto:</h1>
 
 <%= form_with(model: @room) do |f| %>
     <div>
@@ -21,84 +19,39 @@
     </div>
     <div>
         <%= f.label :bathroom %><br>
-        
-       <%= f.radio_button :bathroom, true %>
-        <%= f.label :bathroom_true, 'Interno' %><br>
-        
-        <%= f.radio_button :bathroom, false %>
-        <%= f.label :bathroom_false, 'Externo' %>
+        <%= f.select :bathroom, [['Interno', true], ['Externo', false]] %>
     </div>
     <div>
         <%= f.label :balcony %><br>
-        
-       <%= f.radio_button :balcony, true %>
-        <%= f.label :balcony_true, 'Sim' %><br>
-        
-        <%= f.radio_button :balcony, false %>
-        <%= f.label :balcony_false, 'Não' %>
+        <%= f.select :balcony, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :wi_fi %><br>
-        
-       <%= f.radio_button :wi_fi, true %>
-        <%= f.label :wi_fi_true, 'Sim' %><br>
-        
-        <%= f.radio_button :wi_fi, false %>
-        <%= f.label :wi_fi_false, 'Não' %>
+        <%= f.select :wi_fi, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :air_conditioning %><br>
-        
-       <%= f.radio_button :air_conditioning, true %>
-        <%= f.label :air_conditioning_true, 'Sim' %><br>
-        
-        <%= f.radio_button :air_conditioning, false %>
-        <%= f.label :air_conditioning_false, 'Não' %>
+        <%= f.select :air_conditioning, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :television %><br>
-        
-       <%= f.radio_button :television, true %>
-        <%= f.label :television_true, 'Sim' %><br>
-        
-        <%= f.radio_button :television, false %>
-        <%= f.label :television_false, 'Não' %>
+        <%= f.select :television, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :wardrobe %><br>
-        
-       <%= f.radio_button :wardrobe, true %>
-        <%= f.label :wardrobe_true, 'Sim' %><br>
-        
-        <%= f.radio_button :wardrobe, false %>
-        <%= f.label :wardrobe_false, 'Não' %>
+        <%= f.select :wardrobe, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :safe %><br>
-        
-       <%= f.radio_button :safe, true %>
-        <%= f.label :safe_true, 'Sim' %><br>
-        
-        <%= f.radio_button :safe, false %>
-        <%= f.label :safe_false, 'Não' %>
+        <%= f.select :safe, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :accessible_disabled %><br>
-        
-       <%= f.radio_button :accessible_disabled, true %>
-        <%= f.label :accessible_disabled_true, 'Sim' %><br>
-        
-        <%= f.radio_button :safe, false %>
-        <%= f.label :accessible_disabled_false, 'Não' %>
+        <%= f.select :accessible_disabled, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.label :available %><br>
-        
-       <%= f.radio_button :available, true %>
-        <%= f.label :available_true, 'Sim' %><br>
-        
-        <%= f.radio_button :safe, false %>
-        <%= f.label :available_false, 'Não' %>
+        <%= f.select :available, [['Sim', true], ['Não', false]] %>
     </div>
     <div>
         <%= f.submit 'Atualizar' %>
