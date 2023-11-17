@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_17_031308) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_130138) do
   create_table "guesthouses", force: :cascade do |t|
     t.string "trade_name"
     t.string "corporate_name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_17_031308) do
     t.datetime "updated_at", null: false
     t.string "cep"
     t.integer "user_id", null: false
+    t.boolean "available", default: true
     t.index ["user_id"], name: "index_guesthouses_on_user_id"
   end
 
