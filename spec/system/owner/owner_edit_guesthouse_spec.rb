@@ -8,8 +8,8 @@ describe 'Proprietario edita uma pousada' do
                     state: 'SP', cep: '11925-000', phone_number: '(13) 3842 1110', email: 'contato@icarai.com.br',
                     cnpj: '58.985.405/0001-06', quantity_rooms: 4, user: user)
 
+        login_as(user, scope: :user) #sempre logar primeiro
         visit root_path
-        login_as(user, scope: :user)
         click_on 'Pousada Icaraí'
         click_on 'Editar'
 

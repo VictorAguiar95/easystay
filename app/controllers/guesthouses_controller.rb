@@ -17,7 +17,11 @@ class GuesthousesController < ApplicationController
         @guesthouse = current_user.guesthouses.new(guesthouse_params)
       
         if @guesthouse.save
-            redirect_to new_room_path, notice: 'Pousada cadastrada com sucesso!'
+            if current_user.proprietario?
+                redirect_to new_room_path, notice: 'Insira os dados da sua pousada!'
+            else
+                redirect_to guesthouses_path, notice: 'Apenas usuarios cadastrados como proprietarios acessar essa pagina!'
+            end
         else
             render :new
         end
