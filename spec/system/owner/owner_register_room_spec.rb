@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Proprietário cadastra uma pousada' do
+describe 'Proprietário cadastra um quarto' do
     it 'a partir da tela inicial' do
         user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
         

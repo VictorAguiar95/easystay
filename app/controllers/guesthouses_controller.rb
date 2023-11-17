@@ -19,7 +19,7 @@ class GuesthousesController < ApplicationController
         if @guesthouse.save
             redirect_to new_room_path, notice: 'Pousada cadastrada!'
         else
-            flash.now[:notice] = 'Pousada não cadastrada'
+            flash.now[:notice] = 'Dados incompleto, pousada não cadastrada'
             render 'new'
         end
     end

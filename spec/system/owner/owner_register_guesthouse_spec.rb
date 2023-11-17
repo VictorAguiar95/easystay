@@ -39,8 +39,8 @@ describe 'Proprietário tenta cadastra uma pousada' do
     it 'com sucesso' do
         user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
         
-        visit root_path
         login_as(user, scope: :user)
+        visit root_path
         click_on 'Anuncie Conosco'
         fill_in 'Nome Comercial', with: 'Pousada Icaraí'
         fill_in 'Razão Social', with: 'Pousada Icaraí LTDA'
@@ -66,9 +66,9 @@ describe 'Proprietário tenta cadastra uma pousada' do
     end
 
     it 'com dados incompletos' do
-        user = User.create!(name: 'Vitor', email: 'vitor@gmail.com', password: '159753vitor')
+        user = User.create!(email: 'proprietario@example.com', password: 'senha123', role: 'proprietario')
         
-        login_as(user)
+        login_as(user, scope: :user)
         visit root_path
         click_on 'Anuncie Conosco'
         fill_in 'Nome Comercial', with: ''
