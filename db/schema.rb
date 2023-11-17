@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_15_123448) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_031308) do
   create_table "guesthouses", force: :cascade do |t|
     t.string "trade_name"
     t.string "corporate_name"
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_123448) do
     t.string "lastname"
     t.string "cpf"
     t.date "birth"
-    t.string "role"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

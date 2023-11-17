@@ -7,7 +7,7 @@ class GuesthousesController < ApplicationController
 
     def new
         if current_user.guesthouses.any?
-            redirect_to root_path, alert: 'Você já possui uma pousada cadastrada'
+            return redirect_to root_path, alert: 'Você já possui uma pousada cadastrada'
           else
             @guesthouse = Guesthouse.new
         end
@@ -17,13 +17,10 @@ class GuesthousesController < ApplicationController
         @guesthouse = current_user.guesthouses.new(guesthouse_params)
       
         if @guesthouse.save
-            if current_user.proprietario?
-                redirect_to new_room_path, notice: 'Insira os dados da sua pousada!'
-            else
-                redirect_to guesthouses_path, notice: 'Apenas usuarios cadastrados como proprietarios acessar essa pagina!'
-            end
+            redirect_to new_room_path, notice: 'Pousada cadastrada!'
         else
-            render :new
+            flash.now[:notice] = 'Pousada não cadastrada'
+            render 'new'
         end
     end
 
