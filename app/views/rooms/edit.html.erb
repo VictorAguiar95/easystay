@@ -1,0 +1,59 @@
+<h1>Editar Quarto:</h1>
+
+<%= form_with(model: @room) do |f| %>
+    <div>
+        <%= f.label :name %>:
+        <%= f.text_field :name %>
+    </div>
+    <div>
+        <%= f.label :description %>:
+        <%= f.text_field :description %>
+    </div>
+    <div>
+        <%= f.label :size %>:
+        <%= f.text_field :size %>
+    </div>
+    <div>
+        <%= f.label :qty_people %>:
+        <%= f.text_field :qty_people %>
+    </div>
+    <div>
+        <%= f.label :bathroom %><br>
+        <%= f.select :bathroom, [['Interno', true], ['Externo', false]] %>
+    </div>
+    <div>
+        <%= f.label :balcony %><br>
+        <%= f.select :balcony, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :wi_fi %><br>
+        <%= f.select :wi_fi, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :air_conditioning %><br>
+        <%= f.select :air_conditioning, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :television %><br>
+        <%= f.select :television, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :wardrobe %><br>
+        <%= f.select :wardrobe, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :safe %><br>
+        <%= f.select :safe, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :accessible_disabled %><br>
+        <%= f.select :accessible_disabled, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.label :available %><br>
+        <%= f.select :available, [['Sim', true], ['Não', false]] %>
+    </div>
+    <div>
+        <%= f.submit 'Salvar Alterações' %>
+    </div>
+<% end %>
