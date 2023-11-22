@@ -22,7 +22,6 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-        puts params
         params.require(:room).permit(:name, :description, :size, :qty_people, :bathroom, :balcony,
                                                     :wi_fi, :air_conditioning, :television, :wardrobe, :safe,
                                                     :accessible_disabled, :available)
