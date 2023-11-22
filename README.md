@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# travels_easily
+# easy_stay
 Um aplicativo intuitivo para pousadas. Facilitando a experiência de reserva para viajantes e otimizando a gestão para proprietários de pousadas.
 =======
 # README
